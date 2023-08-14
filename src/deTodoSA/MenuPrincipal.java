@@ -59,6 +59,11 @@ public static TreeSet<Producto> listaProducto = new TreeSet<>();
         jMenu2.setText("Consultas");
 
         jMenuItem2.setText("Por Rubro");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem2);
 
         jMenuItem3.setText("Por Nombre");
@@ -98,6 +103,15 @@ public static TreeSet<Producto> listaProducto = new TreeSet<>();
         escritorio.add(busqueda);
         escritorio.moveToFront(busqueda);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        escritorio.removeAll();
+        escritorio.repaint();
+        BusquedaPorRubro bpr=new BusquedaPorRubro();
+        bpr.setVisible(true);
+        escritorio.add(bpr);
+        escritorio.moveToFront(bpr);
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     /**
      * @param args the command line arguments
