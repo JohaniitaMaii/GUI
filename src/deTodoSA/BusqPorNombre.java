@@ -9,7 +9,9 @@ import javax.swing.table.DefaultTableModel;
 public class BusqPorNombre extends javax.swing.JInternalFrame {
 private DefaultTableModel modelo = new DefaultTableModel();
 
-
+    public boolean isCellEditable(int f, int c) {
+        return false;
+    }
 
 
     /**
@@ -17,9 +19,7 @@ private DefaultTableModel modelo = new DefaultTableModel();
      */
     public BusqPorNombre() {
         initComponents();
-        armarCabecera();
-       
-        
+        armarCabecera();   
     }
 
     /**
@@ -41,6 +41,11 @@ private DefaultTableModel modelo = new DefaultTableModel();
 
         jLabel2.setText("Escriba Producto");
 
+        txtNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNombreActionPerformed(evt);
+            }
+        });
         txtNombre.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtNombreKeyReleased(evt);
@@ -96,12 +101,20 @@ private DefaultTableModel modelo = new DefaultTableModel();
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtNombreKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyReleased
+        borrarFilas();
+        String match = txtNombre.getText().trim().toLowerCase();
         for (Producto aux : MenuPrincipal.listaProducto) {
-            if (aux.getDescripcion().startsWith(txtNombre.getText())) {
+            String desc = aux.getDescripcion().toLowerCase();
+            if (desc.contains(match)) {
                 modelo.addRow(new Object[]{aux.getCodigo(), aux.getDescripcion(), aux.getPrecio(), aux.getStock()});
             }
         }
     }//GEN-LAST:event_txtNombreKeyReleased
+
+    private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_txtNombreActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -121,5 +134,11 @@ private DefaultTableModel modelo = new DefaultTableModel();
         jTable1.setModel(modelo);
     }
 
-
+    private void borrarFilas() {
+        int f = jTable1.getRowCount() - 1;
+        for (; f >= 0; f--) {
+            modelo.removeRow(f);
+        }
+    }
+    
 }

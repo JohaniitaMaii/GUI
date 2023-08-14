@@ -15,6 +15,7 @@ public static TreeSet<Producto> listaProducto = new TreeSet<>();
     public MenuPrincipal() {
         initComponents();
         this.setLocationRelativeTo(null);
+        cargarProducto();
     }
 
     /**
