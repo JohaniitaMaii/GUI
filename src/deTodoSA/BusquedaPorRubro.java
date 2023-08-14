@@ -36,7 +36,6 @@ public class BusquedaPorRubro extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jcCategoria = new javax.swing.JComboBox<>();
-        jbBuscar = new javax.swing.JButton();
 
         jLabel1.setText("Productos por Rubro");
 
@@ -63,13 +62,6 @@ public class BusquedaPorRubro extends javax.swing.JInternalFrame {
             }
         });
 
-        jbBuscar.setText("Buscar");
-        jbBuscar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbBuscarActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -87,10 +79,6 @@ public class BusquedaPorRubro extends javax.swing.JInternalFrame {
                                 .addComponent(jcCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jbBuscar)
-                .addGap(40, 40, 40))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -101,9 +89,7 @@ public class BusquedaPorRubro extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jcCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jbBuscar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -113,17 +99,15 @@ public class BusquedaPorRubro extends javax.swing.JInternalFrame {
 
     private void jcCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcCategoriaActionPerformed
         // TODO add your handling code here:
-        System.out.println("hola");
+        borrarFilas();
+        Categoria selectedCategoria = (Categoria) jcCategoria.getSelectedItem();
+        String nombreCategoria = selectedCategoria.name();
+        for (Producto prod : MenuPrincipal.listaProducto) {
+            if (prod.getRubro().equals((Categoria) jcCategoria.getSelectedItem())) {
+                modelo.addRow(new Object[]{prod.getCodigo(), prod.getDescripcion(), prod.getPrecio()});
+            }
+        }
     }//GEN-LAST:event_jcCategoriaActionPerformed
-
-    private void jbBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBuscarActionPerformed
-//      Categoria selectedCategoria = (Categoria) jcCategoria.getSelectedItem();
-//                String nombreCategoria = selectedCategoria.name();
-//                
-//                for(Producto prod: MenuPrincipal.listaProducto){
-//                    if()
-//                }
-    }//GEN-LAST:event_jbBuscarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -131,7 +115,6 @@ public class BusquedaPorRubro extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JButton jbBuscar;
     private javax.swing.JComboBox<String> jcCategoria;
     // End of variables declaration//GEN-END:variables
 private void armarCabecera() {
@@ -142,6 +125,11 @@ private void armarCabecera() {
         jTable1.setModel(modelo);
     }
 
-
+private void borrarFilas() {
+        int f = jTable1.getRowCount() - 1;
+        for (; f >= 0; f--) {
+            modelo.removeRow(f);
+        }
+    }
 }
    
