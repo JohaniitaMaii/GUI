@@ -146,18 +146,27 @@ public class AgregarProducto extends javax.swing.JInternalFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         //Producto(Integer codigo, String descripcion, Double precio, Integer stock, Categoria rubro)
+        int codigo_form = Integer.parseInt(jtf_codigo.getText());
+        String e_mess = null;
+        for ( Producto prod : MenuPrincipal.listaProducto) {
+            if (prod.getCodigo() == codigo_form) {
+                e_mess = "El código ya está en uso";
+            }
+        }
         try {
-        MenuPrincipal.listaProducto.add(
-                new Producto(
-                        Integer.parseInt(jtf_codigo.getText()),
-                        jta_desc.getText(),
-                        Double.valueOf(jtf_precio.getText()),
-                        Integer.parseInt(jtf_stock.getText()),
-                        Categoria.valueOf(jcb_categoria.getSelectedItem().toString())
-                )
-        );
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Se ha producido un error.\nCompruebe los campos.");
+            if (e_mess != null)
+                throw new Exception(e_mess);
+            MenuPrincipal.listaProducto.add(
+                    new Producto(
+                            codigo_form,
+                            jta_desc.getText(),
+                            Double.valueOf(jtf_precio.getText()),
+                            Integer.valueOf(jtf_stock.getText()),
+                            Categoria.valueOf(jcb_categoria.getSelectedItem().toString())
+                            )
+                    );
+            } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, e_mess);
             System.out.println(e);
         }
                
