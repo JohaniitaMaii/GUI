@@ -145,7 +145,8 @@ private DefaultTableModel modelo = new DefaultTableModel();
         }
         }
     }//GEN-LAST:event_txtPrecioMaxActionPerformed
-
+// COMO REALIZAR LA BUSQUEDA SI CON UN EVN O AGREGAR UN BOTÓN PARA COMPLETAR EL CODIGO
+    
     private void txtPrecioMinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPrecioMinActionPerformed
        
     }//GEN-LAST:event_txtPrecioMinActionPerformed
