@@ -52,6 +52,11 @@ public static TreeSet<Producto> listaProducto = new TreeSet<>();
         jMenu1.setText("Administracion");
 
         jMenuItem1.setText("Producto");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem1);
 
         jMenuBar1.add(jMenu1);
@@ -75,6 +80,11 @@ public static TreeSet<Producto> listaProducto = new TreeSet<>();
         jMenu2.add(jMenuItem3);
 
         jMenuItem4.setText("Por Precio");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem4);
 
         jMenuBar1.add(jMenu2);
@@ -113,12 +123,31 @@ public static TreeSet<Producto> listaProducto = new TreeSet<>();
         escritorio.moveToFront(bpr);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+       escritorio.removeAll();
+        escritorio.repaint();
+        BusqPorPrecio bpp=new BusqPorPrecio();
+        bpp.setVisible(true);
+        escritorio.add(bpp);
+        escritorio.moveToFront(bpp);
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        escritorio.removeAll();
+        escritorio.repaint();
+        GestionProducto gp = new GestionProducto();
+        gp.setVisible(true);
+        escritorio.add(gp);
+        escritorio.moveToFront(gp);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        //<edi public static void main(String args[]) {
+        /* Set thtor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
@@ -168,8 +197,8 @@ public static TreeSet<Producto> listaProducto = new TreeSet<>();
         listaProducto.add(new Producto(102, "Jabón" , 700.0, 410 ,Categoria.LIMPIEZA));
         listaProducto.add(new Producto(104, "Detergente" , 150.0, 520 ,Categoria.LIMPIEZA));
         listaProducto.add(new Producto(200, "Antitranspirante" , 950.0, 130 ,Categoria.PERFUMERÍA));
-        listaProducto.add(new Producto(200, "Shampoo" , 1250.0, 430 ,Categoria.PERFUMERÍA));
-        listaProducto.add(new Producto(200, "Crema de Enjuague" , 1450.0, 330 ,Categoria.PERFUMERÍA));
+        listaProducto.add(new Producto(202, "Shampoo" , 1250.0, 430 ,Categoria.PERFUMERÍA));
+        listaProducto.add(new Producto(204, "Crema de Enjuague" , 1450.0, 330 ,Categoria.PERFUMERÍA));
     }
     
 

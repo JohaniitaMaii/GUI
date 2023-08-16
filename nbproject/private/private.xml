@@ -3,11 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/johan/Documents/NetBeansProjects/ULP%20ArgPrograma/GUI/GUI/src/productos/AgregarCategoria.java</file>
-            <file>file:/C:/Users/johan/Documents/NetBeansProjects/ULP%20ArgPrograma/GUI/GUI/src/productos/AgregarProducto.java</file>
-            <file>file:/C:/Users/johan/Documents/NetBeansProjects/ULP%20ArgPrograma/GUI/GUI/src/productos/Categoria.java</file>
+            <file>file:/C:/Users/johan/Documents/NetBeansProjects/ULP%20ArgPrograma/GUI/GUI/src/deTodoSA/BusqPorNombre.java</file>
+            <file>file:/C:/Users/johan/Documents/NetBeansProjects/ULP%20ArgPrograma/GUI/GUI/src/deTodoSA/Categoria.java</file>
+            <file>file:/C:/Users/johan/Documents/NetBeansProjects/ULP%20ArgPrograma/GUI/GUI/src/deTodoSA/BusquedaPorRubro.java</file>
             <file>file:/C:/Users/johan/Documents/NetBeansProjects/ULP%20ArgPrograma/GUI/GUI/src/productos/Producto.java</file>
-            <file>file:/C:/Users/johan/Documents/NetBeansProjects/ULP%20ArgPrograma/GUI/GUI/src/convertidor/temperatura.java</file>
+            <file>file:/C:/Users/johan/Documents/NetBeansProjects/ULP%20ArgPrograma/GUI/GUI/src/deTodoSA/MenuPrincipal.java</file>
             <file>file:/C:/Users/johan/Documents/NetBeansProjects/ULP%20ArgPrograma/GUI/GUI/src/productos/AppProductos.java</file>
         </group>
     </open-files>

@@ -104,7 +104,7 @@ public class BusquedaPorRubro extends javax.swing.JInternalFrame {
         String nombreCategoria = selectedCategoria.name();
         for (Producto prod : MenuPrincipal.listaProducto) {
             if (prod.getRubro().equals((Categoria) jcCategoria.getSelectedItem())) {
-                modelo.addRow(new Object[]{prod.getCodigo(), prod.getDescripcion(), prod.getPrecio()});
+                modelo.addRow(new Object[]{prod.getCodigo(), prod.getDescripcion(), prod.getPrecio(), prod.getStock()});
             }
         }
     }//GEN-LAST:event_jcCategoriaActionPerformed
