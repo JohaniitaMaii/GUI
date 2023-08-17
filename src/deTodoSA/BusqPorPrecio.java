@@ -38,14 +38,9 @@ private DefaultTableModel modelo = new DefaultTableModel();
 
         jLabel2.setText("Entre $");
 
-        txtPrecioMin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPrecioMinActionPerformed(evt);
-            }
-        });
         txtPrecioMin.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                txtPrecioMinKeyPressed(evt);
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtPrecioMinKeyReleased(evt);
             }
         });
 
@@ -54,6 +49,11 @@ private DefaultTableModel modelo = new DefaultTableModel();
         txtPrecioMax.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtPrecioMaxActionPerformed(evt);
+            }
+        });
+        txtPrecioMax.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtPrecioMaxKeyReleased(evt);
             }
         });
 
@@ -129,29 +129,12 @@ private DefaultTableModel modelo = new DefaultTableModel();
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtPrecioMaxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPrecioMaxActionPerformed
-        borrarFilas();
-        if (txtPrecioMin.equals("")) {
-            for (Producto aux :MenuPrincipal.listaProducto) {
-                if (aux.getPrecio() <= Double.parseDouble(txtPrecioMax.getText())) {
-                    modelo.addRow(new Object[] {aux.getCodigo(), aux.getDescripcion(), aux.getPrecio(), aux.getStock()});
-                }
-            }
-        } else {
-            for (Producto aux :MenuPrincipal.listaProducto) {
-                if (aux.getPrecio() >= Double.parseDouble(txtPrecioMin.getText()) &&
-                      aux.getPrecio() <= Double.parseDouble(txtPrecioMax.getText())) {
-                    modelo.addRow(new Object[] {aux.getCodigo(), aux.getDescripcion(), aux.getPrecio(), aux.getStock()});
-                }
-        }
-        }
+        
     }//GEN-LAST:event_txtPrecioMaxActionPerformed
 // COMO REALIZAR LA BUSQUEDA SI CON UN EVN O AGREGAR UN BOTÓN PARA COMPLETAR EL CODIGO
     
-    private void txtPrecioMinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPrecioMinActionPerformed
-       
-    }//GEN-LAST:event_txtPrecioMinActionPerformed
-
-    private void txtPrecioMinKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPrecioMinKeyPressed
+    private void txtPrecioMinKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPrecioMinKeyReleased
+        // TODO add your handling code here:
         borrarFilas();
         if (txtPrecioMax.equals("")) {
             for (Producto aux :MenuPrincipal.listaProducto) {
@@ -167,7 +150,26 @@ private DefaultTableModel modelo = new DefaultTableModel();
                 }
         }
         }
-    }//GEN-LAST:event_txtPrecioMinKeyPressed
+    }//GEN-LAST:event_txtPrecioMinKeyReleased
+
+    private void txtPrecioMaxKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPrecioMaxKeyReleased
+        // TODO add your handling code here:
+        borrarFilas();
+        if (txtPrecioMin.equals("")) {
+            for (Producto aux :MenuPrincipal.listaProducto) {
+                if (aux.getPrecio() <= Double.parseDouble(txtPrecioMax.getText())) {
+                    modelo.addRow(new Object[] {aux.getCodigo(), aux.getDescripcion(), aux.getPrecio(), aux.getStock()});
+                }
+            }
+        } else {
+            for (Producto aux :MenuPrincipal.listaProducto) {
+                if (aux.getPrecio() >= Double.parseDouble(txtPrecioMin.getText()) &&
+                      aux.getPrecio() <= Double.parseDouble(txtPrecioMax.getText())) {
+                    modelo.addRow(new Object[] {aux.getCodigo(), aux.getDescripcion(), aux.getPrecio(), aux.getStock()});
+                }
+        }
+        }
+    }//GEN-LAST:event_txtPrecioMaxKeyReleased
 
     private void armarCabecera() {
         modelo.addColumn("Código");
